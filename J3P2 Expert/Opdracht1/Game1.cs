@@ -39,7 +39,7 @@ public class Game1 : Game
         _starTexture = Content.Load<Texture2D>("LittleStar");
         _font = Content.Load<SpriteFont>("font");
 
-        _currentScene = new ScaleTestScene(_starTexture, _font);
+        _currentScene = new OriginTestScene(_starTexture, _font);
         _currentScene.Initialize();
 
         // TODO: use this.Content to load your game content here

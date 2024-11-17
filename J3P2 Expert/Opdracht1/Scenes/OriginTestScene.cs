@@ -22,29 +22,33 @@ namespace CSharp_Expert.Opdracht1.Scenes
 
             Vector2[] positions =
             [
-                new Vector2(100, 100),
-                new Vector2(250, 50),
-                new Vector2(300, 200),
-                new Vector2(400, 400),
-                new Vector2(600, 200)
+                new Vector2(100, 200),
+                new Vector2(250, 150),
+                new Vector2(400, 300),
             ];
-            float[] scales =
+            Vector2[] origins =
                 [
-                    1f,
-                    0.5f,
-                    0.1f,
-                    3f,
-                    1.5f
+                    new Vector2(0f, 0f),
+                    new Vector2(1f, 1f),
+                    new Vector2(0.5f, 0.5f)
                 ];
 
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 var gameObject = new GameObject(_objectTexture);
                 gameObject.Transform.Position = positions[i];
-                gameObject.Transform.Scale = scales[i];
-                gameObject.AddTextRenderer(_font, $"Object {i + 1} Scale: {gameObject.Transform.Scale}", Color.Red);
+                gameObject.Transform.Origin = origins[i];
+                gameObject.AddTextRenderer(_font, $"Object {i + 1} Origin: {gameObject.Transform.Origin}", Color.Red);
                 GameObjects.Add(gameObject);
+            }
+        }
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            foreach (var gameObject in GameObjects)
+            {
+                gameObject.Transform.Rotation += 2f;
             }
         }
     }
