@@ -16,6 +16,10 @@ public abstract class SceneBase
     {
     }
 
+    public void ClearObjects()
+    {
+        GameObjects.Clear();
+    }
     public virtual void Update(GameTime gameTime)
     {
         foreach (var gameObject in GameObjects)

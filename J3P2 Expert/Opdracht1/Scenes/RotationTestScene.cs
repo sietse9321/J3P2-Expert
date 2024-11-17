@@ -59,7 +59,7 @@ namespace CSharp_Expert.Opdracht1.Scenes
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            _rotateObject.TextRenderer.SetText($"Object 0 Rotation: {_rotateObject.Transform.Rotation}");
+            _rotateObject.TextRenderer.SetText($"Object 1 Rotation: {_rotateObject.Transform.Rotation}");
             _rotateObject.Transform.Rotation += 2f;
         }
     }

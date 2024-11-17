@@ -1,5 +1,5 @@
 ﻿using System;
-using CSharp_Expert.opdracht1;
+using System.Collections.Generic;
 using CSharp_Expert.Opdracht1.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,6 +13,9 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private Texture2D _starTexture;
     private SceneBase _currentScene;
+    private List<SceneBase> _scenes = new List<SceneBase>();
+    private int _sceneIndex = 0;
+
 
     private SpriteFont _font;
 
@@ -38,9 +41,20 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _starTexture = Content.Load<Texture2D>("LittleStar");
         _font = Content.Load<SpriteFont>("font");
+        PositionTestScene position = new PositionTestScene(_starTexture, _font);
+        RotationTestScene rotation = new RotationTestScene(_starTexture, _font);
+        ScaleTestScene scale = new ScaleTestScene(_starTexture, _font);
+        OriginTestScene origin = new OriginTestScene(_starTexture, _font);
 
-        _currentScene = new OriginTestScene(_starTexture, _font);
+        _scenes.Add(position);
+        _scenes.Add(rotation);
+        _scenes.Add(scale);
+        _scenes.Add(origin);
+
+        _currentScene = _scenes[0];
+
         _currentScene.Initialize();
+
 
         // TODO: use this.Content to load your game content here
     }
@@ -49,8 +63,9 @@ public class Game1 : Game
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-
         // TODO: Add your update logic here
+
+        KeyInput();
         _currentScene.Update(gameTime);
         base.Update(gameTime);
     }
@@ -65,5 +80,32 @@ public class Game1 : Game
         _spriteBatch.End();
 
         base.Draw(gameTime);
+    }
+
+    private void KeyInput()
+    {
+        KeyboardState keyboardState = Keyboard.GetState();
+        if (keyboardState.IsKeyDown(Keys.D1))
+        {
+            ChangeScene(0);
+        }
+        if (keyboardState.IsKeyDown(Keys.D2))
+        {
+            ChangeScene(1);
+        }
+        if (keyboardState.IsKeyDown(Keys.D3))
+        {
+            ChangeScene(2);
+        }
+        if (keyboardState.IsKeyDown(Keys.D4))
+        {
+            ChangeScene(3);
+        }
+    }
+    private void ChangeScene(int pScene)
+    {
+        _currentScene.ClearObjects();
+        _currentScene = _scenes[pScene];
+        _currentScene.Initialize();
     }
 }
