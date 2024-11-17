@@ -4,7 +4,6 @@ using CSharp_Expert.Opdracht1.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CSharp_Expert.Opdracht1;
 
@@ -40,7 +39,7 @@ public class Game1 : Game
         _starTexture = Content.Load<Texture2D>("LittleStar");
         _font = Content.Load<SpriteFont>("font");
 
-        _currentScene = new RotationTestScene(_starTexture, _font);
+        _currentScene = new ScaleTestScene(_starTexture, _font);
         _currentScene.Initialize();
 
         // TODO: use this.Content to load your game content here
@@ -61,7 +60,7 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
         // TODO: Add your drawing code here
-        _spriteBatch.Begin();
+        _spriteBatch.Begin(SpriteSortMode.FrontToBack);
         _currentScene.Draw(_spriteBatch);
         _spriteBatch.End();
 

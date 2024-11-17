@@ -18,7 +18,7 @@ namespace CSharp_Expert.Opdracht1
 
         public void Draw(SpriteBatch spriteBatch, TransformComp transform)
         {
-            spriteBatch.DrawString(_font, _text, transform.Position, _color);
+            spriteBatch.DrawString(_font, _text, transform.Position + new Vector2(-75f,60f), _color,0f,Vector2.Zero,1f,SpriteEffects.None,1f);
         }
 
         public void SetText(string text)

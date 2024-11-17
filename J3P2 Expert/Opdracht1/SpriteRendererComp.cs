@@ -8,7 +8,7 @@ public class SpriteRendererComp
 {
     public Texture2D Texture { get; private set; }
     public Color Color { get; private set; } = Color.White;
-    public float LayerDepth { get; private set; } = 0f;
+    public float LayerDepth { get; private set; } = 0.9f;
 
     private Vector2 originNormalized = Vector2.Zero;
 

@@ -18,8 +18,8 @@ public class TransformComp
     }
     public float Rotation
     {
-        get => _rotation;
-        set => _rotation = value % 360;
+        get => _rotation;   //if number is above 360 make it 0
+        set => _rotation = value /*% 360*/;
     }
     public Vector2 Position
     {

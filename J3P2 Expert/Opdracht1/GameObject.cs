@@ -23,13 +23,11 @@ public class GameObject
     }
     public virtual void Update(GameTime gameTime)
     {
-
     }
 
     public virtual void Draw(SpriteBatch spriteBatch)
     {
-        SpriteRenderer.Draw(spriteBatch, Transform);
-        if (TextRenderer == null) return;
-        TextRenderer.Draw(spriteBatch, Transform);
+        TextRenderer?.Draw(spriteBatch, Transform);
+        SpriteRenderer?.Draw(spriteBatch, Transform);
     }
 }
