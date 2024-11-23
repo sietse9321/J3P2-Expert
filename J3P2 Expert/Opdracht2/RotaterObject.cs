@@ -19,9 +19,8 @@ public class RotaterObject : GameObject
 
     public override void Update(GameTime gameTime)
     {
-        float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-        Transform.Rotation += _rotationSpeed * _direction * deltaTime * 360;
-
+        //object ortation is speed times direction times gametime times 360 degrees
+        Transform.Rotation += _rotationSpeed * _direction * (float)gameTime.ElapsedGameTime.TotalSeconds * 360;
         base.Update(gameTime);
     }
 }
