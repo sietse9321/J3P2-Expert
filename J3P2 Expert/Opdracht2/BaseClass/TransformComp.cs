@@ -6,14 +6,14 @@ public class TransformComp
 {
     private float _rotation;
     private Vector2 _position;
-    private float _scale;
+    private Vector2 _scale;
     private Vector2 _origin;
 
     public TransformComp()
     {
         Rotation = 0;
         Position = Vector2.Zero;
-        Scale = 1f;
+        Scale = new Vector2(1f, 1f);
         Origin = new Vector2(0.5f, 0.5f);
     }
     public float Rotation
@@ -26,7 +26,7 @@ public class TransformComp
         get => _position;
         set => _position = value;
     }
-    public float Scale
+    public Vector2 Scale
     {
         get => _scale;
         set => _scale = value;
