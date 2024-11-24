@@ -34,7 +34,7 @@ public class ScalerObject : GameObject
         Console.WriteLine(Transform.Scale);
 
         //sets the scale
-        Transform.Scale = new Vector2(scaleX,scaleY);
+        Transform.Scale = new Vector2(scaleX, scaleY);
 
         base.Update(gameTime);
     }

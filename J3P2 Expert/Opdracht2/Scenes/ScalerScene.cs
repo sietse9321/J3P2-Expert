@@ -30,19 +30,13 @@ namespace CSharp_Expert.Opdracht2.Scenes
             ];
 
             //creates object with texture, speed, minimumscale, maximumscale, and the position
-            ObjectInitialize(_objectTexture, 1f, new Vector2(1f, 0.2f), new Vector2(1f, 2f), positions[0]);
-            ObjectInitialize(_objectTexture, 1f, new Vector2(0.2f, 1f), new Vector2(2f, 1f), positions[1]);
+            ObjectInitialize(_objectTexture, 1.0f, new Vector2(1f, 0.2f), new Vector2(1f, 2f), positions[0]);
+            ObjectInitialize(_objectTexture, 1.0f, new Vector2(0.2f, 1f), new Vector2(2f, 1f), positions[1]);
             ObjectInitialize(_objectTexture, 0.5f, new Vector2(0.2f, 1f), new Vector2(2f, 1f), positions[2]);
             ObjectInitialize(_objectTexture, 0.5f, new Vector2(0f, 0f), new Vector2(1f, 1f), positions[3]);
-
-
             ObjectInitialize(_objectTexture, 2.0f, new Vector2(0f, 0f), new Vector2(1f, 1f), positions[4]);
             ObjectInitialize(_objectTexture, 1.0f, new Vector2(0f, 0f), new Vector2(1f, 1f), positions[5]);
             ObjectInitialize(_objectTexture, 0.5f, new Vector2(0f, 0f), new Vector2(1f, 1f), positions[6]);
-
-
-
-
         }
 
         private void ObjectInitialize(Texture2D texture, float speed, Vector2 minScale, Vector2 maxScale, Vector2 position)
