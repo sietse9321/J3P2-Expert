@@ -20,19 +20,12 @@ namespace CSharp_Expert.Opdracht1
         {
             spriteBatch.DrawString(_font, _text, transform.Position + new Vector2(-75f,60f), _color,0f,Vector2.Zero,1f,SpriteEffects.None,1f);
         }
-        /// <summary>
-        /// sets the string if needed
-        /// </summary>
-        /// <param name="text"></param>
+
         public void SetText(string text)
         {
             _text = text;
         }
 
-        /// <summary>
-        /// sets the color of string
-        /// </summary>
-        /// <param name="color"></param>
         public void SetColor(Color color)
         {
             _color = color;

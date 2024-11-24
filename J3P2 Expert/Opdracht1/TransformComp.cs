@@ -9,9 +9,6 @@ public class TransformComp
     private float _scale;
     private Vector2 _origin;
 
-    /// <summary>
-    /// default values for transform
-    /// </summary>
     public TransformComp()
     {
         Rotation = 0;
@@ -19,7 +16,6 @@ public class TransformComp
         Scale = 1f;
         Origin = new Vector2(0.5f, 0.5f);
     }
-    //getter and setter encapsulation
     public float Rotation
     {
         get => _rotation;   //if number is above 360 make it 0
