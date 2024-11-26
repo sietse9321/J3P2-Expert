@@ -43,9 +43,11 @@ public class Game1 : Game
         _font = Content.Load<SpriteFont>("font");
         RotationScene rotationScene = new RotationScene(_starTexture, _font);
         BounceScene bounceScene = new BounceScene(_starTexture, _font);
-        
+        ScalerScene scalerScene = new ScalerScene(_starTexture, _font);
+
         _scenes.Add(rotationScene);
         _scenes.Add(bounceScene);
+        _scenes.Add(scalerScene);
 
         _currentScene = _scenes[0];
 
