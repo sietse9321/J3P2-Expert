@@ -91,13 +91,10 @@ public class Game1 : Game
         {
             ChangeScene(1);
         }
+
         if (keyboardState.IsKeyDown(Keys.D3))
         {
             ChangeScene(2);
-        }
-        if (keyboardState.IsKeyDown(Keys.D4))
-        {
-            ChangeScene(3);
         }
     }
     private void ChangeScene(int pScene)
