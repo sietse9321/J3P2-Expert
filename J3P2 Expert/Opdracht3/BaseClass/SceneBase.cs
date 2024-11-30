@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using CSharp_Expert.opdracht1;
+﻿using System;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CSharp_Expert.Opdracht1;
+namespace CSharp_Expert.Opdracht3.BaseClass;
+
 public abstract class SceneBase
 {
     protected List<GameObject> GameObjects { get; private set; }
@@ -21,6 +22,7 @@ public abstract class SceneBase
     {
         GameObjects.Clear();
     }
+
     public virtual void Update(GameTime gameTime)
     {
         foreach (var gameObject in GameObjects)
