@@ -26,8 +26,8 @@ public class Game1 : Game
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
-        _graphics.PreferredBackBufferWidth = 800;
-        _graphics.PreferredBackBufferHeight = 600;
+        _graphics.PreferredBackBufferWidth = 1280;
+        _graphics.PreferredBackBufferHeight = 960;
     }
 
     protected override void Initialize()
@@ -43,10 +43,12 @@ public class Game1 : Game
         _starTexture = Content.Load<Texture2D>("LittleStar");
         _font = Content.Load<SpriteFont>("font");
         //RotationScene rotationScene = new RotationScene(_starTexture, _font);
-        StarPrefabScene starPrefabScene = new StarPrefabScene(_starTexture, _font);
+        StarPrefabScene starPrefabScene = new StarPrefabScene(_graphics, _starTexture, _font);
+        CombinationsScene combinationsScene = new CombinationsScene(_graphics, _starTexture, _font);
 
         //_scenes.Add(rotationScene);
-        _scenes.Add(starPrefabScene);
+        _scenes.Add(combinationsScene);
+        //_scenes.Add(starPrefabScene);
 
         _currentScene = _scenes[0];
 

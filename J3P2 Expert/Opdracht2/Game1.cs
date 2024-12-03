@@ -14,7 +14,6 @@ public class Game1 : Game
     private Texture2D _starTexture;
     private SceneBase _currentScene;
     private List<SceneBase> _scenes = new List<SceneBase>();
-    private int _sceneIndex = 0;
 
 
     private SpriteFont _font;
