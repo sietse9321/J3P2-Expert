@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -9,7 +8,7 @@ public abstract class SceneBase
 {
     protected List<GameObject> GameObjects { get; private set; }
 
-    public SceneBase()
+    public SceneBase(GraphicsDeviceManager graphics)
     {
         GameObjects = new List<GameObject>();
     }
