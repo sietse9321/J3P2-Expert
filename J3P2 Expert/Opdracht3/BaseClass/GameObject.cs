@@ -10,7 +10,7 @@ namespace CSharp_Expert.Opdracht3.BaseClass;
 public class GameObject
 {
     private Transform _transform;
-    private List<MonoBehaviour> _components = new List<MonoBehaviour>();
+    private List<MonoBehaviour> _components = [];
 
     //Properties
     public Transform Transform
@@ -21,8 +21,9 @@ public class GameObject
 
     public GameObject(Texture2D texture, params MonoBehaviour[] components)
     {
+        //new transform instance
         Transform = new Transform();
-
+        //adds all the components
         for (int i = 0; i < components.Length; i++)
         {
             MonoBehaviour component = components[i];
@@ -31,16 +32,16 @@ public class GameObject
         }
     }
 
-    public virtual void Update(GameTime gameTime)
+    public void Update(GameTime gameTime)
     {
-        //for each component in list update'
+        //for each component in list update
         foreach (MonoBehaviour component in _components)
         {
             component.Update(gameTime);
         }
     }
 
-    public virtual void Draw(SpriteBatch spriteBatch)
+    public void Draw(SpriteBatch spriteBatch)
     {
         //for each component in list draw
         foreach (MonoBehaviour component in _components)
@@ -49,14 +50,11 @@ public class GameObject
         }
     }
 
-    public void AddComponent(MonoBehaviour pBehaviour)
-    {
-    }
+    public void AddComponent(MonoBehaviour pBehaviour){}
 
-    public void RemoveComponent(MonoBehaviour pBehaviour)
-    {
-    }
+    public void RemoveComponent(MonoBehaviour pBehaviour){}
 
+    //method to get a specific monobehavior in compontents list
     public T GetComponent<T>() where T : MonoBehaviour
     {
         for (int i = 0; i < _components.Count; i++)

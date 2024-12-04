@@ -1,6 +1,5 @@
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CSharp_Expert.Opdracht3.Behaviour;
 
@@ -11,15 +10,18 @@ public class Bouncer : MonoBehaviour
     private Vector2 _bounceDirection;
     private float _amplitude;
     private Vector2 _originalPos;
-    public Bouncer(float speed, Vector2 direction, float amplitude, Vector2 originalPos)
+    public Bouncer(float speed, Vector2 direction, float amplitude)
     {
         _speed = speed;
         _bounceDirection = Vector2.Normalize(direction);
         _amplitude = amplitude;
-        _originalPos = originalPos;
     }
     public override void Update(GameTime gameTime)
     {
+        if(_originalPos == Vector2.Zero)
+        {
+            _originalPos = _gameObject.Transform.Position;
+        }
         float deltaTime = (float)gameTime.TotalGameTime.TotalSeconds;
         Vector2 offset = (MathF.Sin(deltaTime * MathHelper.TwoPi * _speed) + 1) * 0.5f * _bounceDirection;
 
