@@ -1,8 +1,9 @@
+using CSharp_Expert.Opdracht4.Components;
 using Microsoft.Xna.Framework;
 
 namespace CSharp_Expert.Opdracht4.Behaviour;
 
-public class Transform : MonoBehaviour
+public class Transform : Component
 {
     private float _rotation;
     private Vector2 _position;

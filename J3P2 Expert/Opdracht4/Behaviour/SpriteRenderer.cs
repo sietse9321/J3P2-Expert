@@ -1,10 +1,11 @@
-using System;
+using CSharp_Expert.Opdracht4.Components;
+using CSharp_Expert.Opdracht4.Interfaces;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace CSharp_Expert.Opdracht4.Behaviour;
 
-public class SpriteRenderer : MonoBehaviour
+public class SpriteRenderer : Component, IDrawableComponent
 {
     public Texture2D Texture { get; private set; }
 
@@ -32,9 +33,9 @@ public class SpriteRenderer : MonoBehaviour
         _textureSize = Texture.Bounds.Size.ToVector2();
     }
     
-    public override void Draw(SpriteBatch spriteBatch, Transform transform)
+    public void Draw(SpriteBatch spriteBatch)
     {
         //draws sprite with
-        spriteBatch.Draw(Texture,transform.Position,null,Color,MathHelper.ToRadians(transform.Rotation),transform.Origin * _textureSize,transform.Scale,SpriteEffects.None,LayerDepth);
+        spriteBatch.Draw(Texture,_gameObject.Transform.Position,null,Color,MathHelper.ToRadians(_gameObject.Transform.Rotation),_gameObject.Transform.Origin * _textureSize,_gameObject.Transform.Scale,SpriteEffects.None,LayerDepth);
     }
 }

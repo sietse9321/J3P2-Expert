@@ -1,6 +1,5 @@
 using System;
 using Microsoft.Xna.Framework;
-using CSharp_Expert.Opdracht4.Behaviour;
 
 namespace CSharp_Expert.Opdracht4.Behaviour;
 public class ColorShifter : MonoBehaviour

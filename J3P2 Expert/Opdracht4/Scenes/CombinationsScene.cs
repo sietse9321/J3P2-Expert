@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using CSharp_Expert.Opdracht4.BaseClass;
-using System;
 
 namespace CSharp_Expert.Opdracht4.Scenes
 {
@@ -26,9 +24,6 @@ namespace CSharp_Expert.Opdracht4.Scenes
 
         public override void Initialize()
         {
-            Console.WriteLine("baller");
-            Console.WriteLine(_viewport.Width);
-
             CreateObjects(_viewport);
             base.Initialize();
         }
@@ -66,7 +61,6 @@ namespace CSharp_Expert.Opdracht4.Scenes
             //TODO Create one star, containing all prefabComponents
             rowHeight = pViewport.Height * 0.85f;
             CreateStar(new Vector2(pViewport.Width * 0.500f, rowHeight), A | B | C | D);
-            Console.WriteLine(pViewport.Width);
         }
     }
 }

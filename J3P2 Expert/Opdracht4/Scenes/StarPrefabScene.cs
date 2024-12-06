@@ -52,17 +52,14 @@ namespace CSharp_Expert.Opdracht4.Scenes
             {
                 components.Add(new ColorShifter(1f));
             }
-
-            //creates a new spriterenderer
-            components.Add(new SpriteRenderer(_starTexture));
-
+            
             //creates a new object with the given parameters
             GameObject newGameObject = new GameObject(_starTexture, components.ToArray());
             newGameObject.Transform.Position = pPosition;
+            newGameObject.AddComponent(new SpriteRenderer(_starTexture));
             GameObjects.Add(newGameObject);
         }
-
-
+        
         public override void Initialize()
         {
             //CreateStar(new Vector2(200, 200), PrefabComponent.Rotater | PrefabComponent.Bouncer | PrefabComponent.Scaler | PrefabComponent.ColorShifter);
