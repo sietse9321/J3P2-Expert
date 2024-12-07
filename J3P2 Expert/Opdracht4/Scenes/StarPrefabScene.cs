@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using CSharp_Expert.Opdracht4.Behaviour;
 using CSharp_Expert.Opdracht4.BaseClass;
+using CSharp_Expert.Opdracht4.Components;
 
 
 namespace CSharp_Expert.Opdracht4.Scenes

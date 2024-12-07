@@ -13,6 +13,7 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private Texture2D _starTexture;
+    private Texture2D _megamanTexture;
     private SceneBase _currentScene;
     private List<SceneBase> _scenes = [];
     private int _sceneIndex = 0;
@@ -41,6 +42,7 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _starTexture = Content.Load<Texture2D>("LittleStar");
+        _megamanTexture = Content.Load<Texture2D>("Megaman");
         _font = Content.Load<SpriteFont>("font");
         //RotationScene rotationScene = new RotationScene(_starTexture, _font);
         StarPrefabScene starPrefabScene = new StarPrefabScene(_graphics, _starTexture, _font);

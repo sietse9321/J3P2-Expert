@@ -68,7 +68,20 @@ public class GameObject
                 break;
         }
     }
-    public void RemoveComponent(Component pBehaviour){}
+
+    public void RemoveComponent(Component pComponent)
+    {
+        _allComponents.Remove(pComponent);
+        switch (pComponent)
+        {
+            case IDrawableComponent component:
+                _drawableComponents.Remove(component);
+                break;
+            case IUpdateableComponent component:
+                _updateableComponents.Remove(component);
+                break;
+        }
+    }
 
     //method to get a specific monobehavior in compontents list
     public T GetComponent<T>() where T : Component

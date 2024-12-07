@@ -1,7 +1,7 @@
 using CSharp_Expert.Opdracht4.Components;
 using Microsoft.Xna.Framework;
 
-namespace CSharp_Expert.Opdracht4.Behaviour;
+namespace CSharp_Expert.Opdracht4.Components;
 
 public class Transform : Component
 {
