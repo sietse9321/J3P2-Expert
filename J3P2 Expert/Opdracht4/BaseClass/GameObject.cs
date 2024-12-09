@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using CSharp_Expert.Opdracht4.Behaviour;
 using CSharp_Expert.Opdracht4.Components;
 using CSharp_Expert.Opdracht4.Interfaces;
+using System;
 
 
 namespace CSharp_Expert.Opdracht4.BaseClass;
@@ -23,7 +24,7 @@ public class GameObject
         set => _transform = value;
     }
 
-    public GameObject(Texture2D texture, params Component[] components)
+    public GameObject(params Component[] components)
     {
         //new transform instance
         Transform = new Transform();
@@ -58,28 +59,36 @@ public class GameObject
     {
         _allComponents.Add(pComponent);
         pComponent.Assign(this);
-        switch (pComponent)
+
+        if (pComponent is IDrawableComponent drawable)
         {
-            case IDrawableComponent component:
-                _drawableComponents.Add(component);
-                break;
-            case IUpdateableComponent component:
-                _updateableComponents.Add(component);
-                break;
+            //Console.WriteLine("draw true");
+            _drawableComponents.Add(drawable);
         }
+
+        if (pComponent is IUpdateableComponent updateable)
+        {
+            //Console.WriteLine("update true");
+            _updateableComponents.Add(updateable);
+        }
+        if (pComponent is MonoBehaviour monoBehaviour)
+        {
+            monoBehaviour.Awake();
+        }
+
     }
 
     public void RemoveComponent(Component pComponent)
     {
         _allComponents.Remove(pComponent);
-        switch (pComponent)
+        if (pComponent is IDrawableComponent drawable)
         {
-            case IDrawableComponent component:
-                _drawableComponents.Remove(component);
-                break;
-            case IUpdateableComponent component:
-                _updateableComponents.Remove(component);
-                break;
+            _drawableComponents.Remove(drawable);
+        }
+
+        if (pComponent is IUpdateableComponent updateable)
+        {
+            _updateableComponents.Remove(updateable);
         }
     }
 

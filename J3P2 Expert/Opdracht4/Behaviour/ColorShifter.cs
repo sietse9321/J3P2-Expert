@@ -24,6 +24,37 @@ public class ColorShifter : MonoBehaviour
         _shiftSpeed = pShiftSpeed;
     }
 
+    public override void Awake()
+    {
+        UpdateColor();
+        base.Awake();
+
+    }
+    private void UpdateColor()
+    {
+        // Try to get the SpriteRenderer
+        var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            // Apply color using SpriteRenderer
+            spriteRenderer.Color = HSLToRGB(_hue, 1.0f, 0.5f);
+        }
+        else
+        {
+            // Try to get the AnimatedSpriteRenderer if SpriteRenderer is not found
+            var animatedSpriteRenderer = _gameObject.GetComponent<AnimatedSpriteRenderer>();
+            if (animatedSpriteRenderer != null)
+            {
+                // Apply color using AnimatedSpriteRenderer
+                animatedSpriteRenderer.Color = HSLToRGB(_hue, 1.0f, 0.5f);
+            }
+            else
+            {
+                // Neither component was found
+                Console.WriteLine("No SpriteRenderer or AnimatedSpriteRenderer attached to the GameObject.");
+            }
+        }
+    }
     //Methods - overridden
     public override void Update(GameTime pGameTime)
     {
@@ -38,8 +69,7 @@ public class ColorShifter : MonoBehaviour
 
 
         //TODO Change SpriteRenderer property to a cached reference to the attached SpriteRenderer component via GetComponent<T>
-        var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
-        spriteRenderer.Color = HSLToRGB(_hue, 1.0f, 0.5f);
+        UpdateColor();
     }
 
     //Methods - ColorShift

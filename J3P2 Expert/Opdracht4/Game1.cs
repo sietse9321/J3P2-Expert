@@ -14,6 +14,8 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private Texture2D _starTexture;
     private Texture2D _megamanTexture;
+    private Texture2D _darkraiIdleTexture;
+    private Texture2D[] _textures;
     private SceneBase _currentScene;
     private List<SceneBase> _scenes = [];
     private int _sceneIndex = 0;
@@ -43,16 +45,23 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _starTexture = Content.Load<Texture2D>("LittleStar");
         _megamanTexture = Content.Load<Texture2D>("Megaman");
+        _darkraiIdleTexture = Content.Load<Texture2D>("darkrai");
+
+        _textures = new Texture2D[] {_megamanTexture, _darkraiIdleTexture };
+
         _font = Content.Load<SpriteFont>("font");
         //RotationScene rotationScene = new RotationScene(_starTexture, _font);
         StarPrefabScene starPrefabScene = new StarPrefabScene(_graphics, _starTexture, _font);
         CombinationsScene combinationsScene = new CombinationsScene(_graphics, _starTexture, _font);
+        AnimatedSpriteScene animatedSpriteScene = new AnimatedSpriteScene(_graphics, _textures, _font);
+
 
         //_scenes.Add(rotationScene);
         _scenes.Add(combinationsScene);
+        _scenes.Add(animatedSpriteScene);
         //_scenes.Add(starPrefabScene);
 
-        _currentScene = _scenes[0];
+        _currentScene = _scenes[1];
 
         _currentScene.Initialize();
 
@@ -90,10 +99,10 @@ public class Game1 : Game
         {
             ChangeScene(0);
         }
-        // if (keyboardState.IsKeyDown(Keys.D2))
-        // {
-        //     ChangeScene(1);
-        // }
+        if (keyboardState.IsKeyDown(Keys.D2))
+        {
+            ChangeScene(1);
+        }
         //
         // if (keyboardState.IsKeyDown(Keys.D3))
         // {
