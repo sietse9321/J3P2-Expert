@@ -47,7 +47,7 @@ public class Game1 : Game
         _megamanTexture = Content.Load<Texture2D>("Megaman");
         _darkraiIdleTexture = Content.Load<Texture2D>("darkrai");
 
-        _textures = new Texture2D[] {_megamanTexture, _darkraiIdleTexture };
+        _textures = new []{_megamanTexture, _darkraiIdleTexture };
 
         _font = Content.Load<SpriteFont>("font");
         //RotationScene rotationScene = new RotationScene(_starTexture, _font);

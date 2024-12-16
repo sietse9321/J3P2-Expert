@@ -20,7 +20,7 @@ public class AnimatedSpriteScene : SceneBase
     {
         //TODO Create 4 prefabs
         _textures = objectTexture;
-        _rotatorPrefab = new Rotater(1f, false);
+         _rotatorPrefab = new Rotater(1f, false);
         _bouncerPrefab = new Bouncer(1, new Vector2(0f, -1f), 100f);
         _scalerPrefab = new Scaler(0.5f, new Vector2(0.2f, 0.2f), new Vector2(1f, 1f));
         _colorShifterPrefab = new ColorShifter(1f);
@@ -68,7 +68,7 @@ public class AnimatedSpriteScene : SceneBase
         CreateObject(new Vector2(500, 300), PrefabComponent.ColorShifter, _textures[0], 5, 2, 0.06f, Color.White, 0, 9);
         CreateObject(new Vector2(500, 450), 0, _textures[0], 5, 2, 0.12f, Color.White, 0, 9);
         CreateObject(new Vector2(700, 300), 0, _textures[0], 5, 2, 0.06f, Color.DarkGreen, 0, 9, new Vector2(2f,2f));
-        CreateObject(new Vector2(700, 450), 0, _textures[0], 5, 2, 0.12f, Color.Red, 0, 9);
+        CreateObject(new Vector2(700, 450), 0, _textures[0], 5, 2, 0.24f, Color.Red, 0, 9);
 
 
         CreateObject(new Vector2(150, 150), 0, _textures[1], 11, 13, 0.06f, Color.White, 0, 142, new Vector2(3f, 3f));

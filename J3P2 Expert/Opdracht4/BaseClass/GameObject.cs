@@ -102,10 +102,7 @@ public class GameObject
                 return behaviour;
             }
 
-            //if (_components[i].GetType() == typeof(T))//Only finds specifically requested class types (GetComponent<MonoBehaviour>() will return only components which are of type MonoBehaviour, no child classes of MonoBehaviour
-            //{
-            //    return (T)_components[i];
-            //}
+          
         }
 
         return null;

@@ -48,11 +48,6 @@ public class ColorShifter : MonoBehaviour
                 // Apply color using AnimatedSpriteRenderer
                 animatedSpriteRenderer.Color = HSLToRGB(_hue, 1.0f, 0.5f);
             }
-            else
-            {
-                // Neither component was found
-                Console.WriteLine("No SpriteRenderer or AnimatedSpriteRenderer attached to the GameObject.");
-            }
         }
     }
     //Methods - overridden

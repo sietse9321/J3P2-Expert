@@ -14,8 +14,10 @@ public class Component
     {
         _gameObject = gameObject;
     }
-    
-    public virtual void Awake() { }
+
+    public virtual void Awake()
+    {
+    }
     
     public virtual void Start() { }
 }
